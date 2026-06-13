@@ -14,20 +14,27 @@ next_state = "IK" if is_fk else "FK"
 # print(f"new state: {'FK' if not is_fk else 'IK'}")
 
 new_parms = apex.Dict()
+# assign new value
 new_parms[f"{CONTROL_NAME}_{SWITCH_NAME}"] = not curr_blend
+
 new_mapping = apex.Dict()
+
 graph_parms = apex.Dict()
 graph_parms[rigpath] = new_parms
 
 ctrls_path = [state.primary_control, f"{rigpath}/{CONTROL_NAME}"]
 
+
 # create mapping
 mapping = {}
 bind_joints = graph.matchNodes("%tag(bindjoint__*) & %tag(bind)")
+
 for nodeid in bind_joints:
     k = graph.nodeName(nodeid)
-    fkid = graph.matchNodes(f"%tag({FK_CTRL_TAG}) & %tag({k})")[0]
-    fkjnt = graph.nodeName(fkid)
+    fkid = graph.matchNodes(f"%tag({FK_CTRL_TAG}) & %tag({k})")
+    if not len(fkid):
+        continue
+    fkjnt = graph.nodeName(fkid[0])
 
     ikid = graph.matchNodes(
         f"%tag(bindjoint__{k}) & (%tag(ik_tip) + %tag(ik_root) + %tag(ik_polevec))"
