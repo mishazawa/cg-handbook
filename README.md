@@ -1,3 +1,3 @@
-[Wiki](https://github.com/mishazawa/cg-handbook/wiki)
+# Note to myself: RTFM
 
-<img width="502" alt="image" src="https://user-images.githubusercontent.com/7611372/202513758-0cf722b8-d90b-4f18-a7ee-4fc5610b585e.png">
+<img width="446" height="501" alt="telegram-cloud-photo-size-2-5233678509769693880-x" src="https://github.com/user-attachments/assets/2c4e980f-95d0-4819-a697-3b0a5f37dd1b" />
